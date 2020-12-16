@@ -19,6 +19,7 @@ public class Tester {
         DataSource ds= (DataSource) ctx.getBean("dataSource");
         String sql="insert grade value(null,?)";
         int r=jdbcTemplate.update(sql,"Y4");
+        //测试
         System.out.println(r>0?"插入成功":"插入失败");
     }
 }
