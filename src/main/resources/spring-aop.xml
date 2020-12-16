@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <context:component-scan base-package="com.bdqn.test"></context:component-scan>
+    <context:component-scan base-package="com.bdqn"></context:component-scan>
 <!--    让切面注解生效  -->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
@@ -16,7 +16,7 @@
         <aop:aspect ref="caculateAspect1" order="3">
             <aop:before method="addMethod" pointcut-ref="aaa"></aop:before>
             <aop:after method="afterMethod" pointcut-ref="aaa"></aop:after>
-            <aop:after-returning method="afterreturnMethod" returning="param" pointcut-ref="aaa"></aop:after-returning>
+            <aop:after-returning method="afterreturnMethod"  pointcut-ref="aaa" returning="param"></aop:after-returning>
             <aop:after-throwing method="afterthrowingMethod" throwing="ex" pointcut-ref="aaa"></aop:after-throwing>
             <aop:around method="aroundMethod" pointcut-ref="aaa"></aop:around>
         </aop:aspect>

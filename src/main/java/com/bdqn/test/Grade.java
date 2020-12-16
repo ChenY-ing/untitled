@@ -1,5 +1,6 @@
 package com.bdqn.test;
 
+import org.springframework.stereotype.Component;
 
 public class Grade {
   public Grade() {
