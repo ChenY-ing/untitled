@@ -15,4 +15,7 @@
     <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="template">
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
 </beans>

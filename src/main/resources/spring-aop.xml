@@ -16,7 +16,7 @@
         <aop:aspect ref="caculateAspect1" order="3">
             <aop:before method="addMethod" pointcut-ref="aaa"></aop:before>
             <aop:after method="afterMethod" pointcut-ref="aaa"></aop:after>
-            <aop:after-returning method="afterreturnMethod" pointcut-ref="aaa" returning="param"></aop:after-returning>
+            <aop:after-returning method="afterreturnMethod" returning="param" pointcut-ref="aaa"></aop:after-returning>
             <aop:after-throwing method="afterthrowingMethod" throwing="ex" pointcut-ref="aaa"></aop:after-throwing>
             <aop:around method="aroundMethod" pointcut-ref="aaa"></aop:around>
         </aop:aspect>
