@@ -23,10 +23,10 @@
     <bean class="com.bdqn1.dao.BookDaoImpl" id="bookDao">
         <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>
-    <bean class="com.bdqn1.service.BookServiceImpl" id="bookService">
+    <bean class="com.bdqn1.service.impl.BookServiceImpl" id="bookService">
         <property name="bookDao" ref="bookDao"></property>
     </bean>
-    <bean class="com.bdqn1.service.CashierImpl" id="cashier">
+    <bean class="com.bdqn1.service.impl.CashierImpl" id="cashier">
         <property name="bookService" ref="bookService"></property>
     </bean>
 
@@ -40,13 +40,15 @@
 <!--    配置事务属性-->
     <tx:advice transaction-manager="transactionManager" id="myTTM">
         <tx:attributes>
+<!--            配置具体的方法需要使用哪些属性-->
+            <tx:method name="purchase" propagation="REQUIRES_NEW"></tx:method>
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
 
 <!--    配置事务切入点，以及把事务切入点和事务属性关联起来-->
     <aop:config>
-        <aop:pointcut id="txP" expression="execution(* com.bdqn1.service.BookServiceImpl.*(..))"/>
+        <aop:pointcut id="txP" expression="execution(* com.bdqn1.service.impl.*.*(..))"/>
         <aop:advisor advice-ref="myTTM" pointcut-ref="txP"></aop:advisor>
     </aop:config>
 
