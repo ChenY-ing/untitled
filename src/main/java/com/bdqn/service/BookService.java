@@ -1,5 +1,5 @@
 package com.bdqn.service;
 
 public interface BookService {
-    void phurse();
+    void purchase(String username,int bid);
 }
